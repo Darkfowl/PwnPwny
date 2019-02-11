@@ -29,7 +29,8 @@ class MetasploitModule < Msf::Exploit::Remote
         ],
       'DefaultOptions' =>
         {
-          #'Payload' => 'python/meterpreter/reverse_tcp',
+          'Payload' => 'cmd/unix/generic',
+		  'cmd' 	=> 'echo hi'
         },
       'Platform'       => ['unix'],
       'Arch'           => ARCH_CMD,
