@@ -1,0 +1,5 @@
+C:\metasploit-framework\embedded\lib\ruby\gems\2.5.0\gems\net-ssh-5.1.0\lib\net
+
+and here
+
+C:\metasploit-framework\embedded\lib\ruby\gems\2.5.0\gems
